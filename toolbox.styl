@@ -1,0 +1,187 @@
+
+animated()
+	-webkit-transition all 0.3s ease-in-out
+	-moz-transition all 0.3s ease-in-out
+	-o-transition all 0.3s ease-in-out
+	transition all 0.3s ease-in-out
+
+.animated
+	animated()
+
+.animatedSlow
+	-webkit-transition all 0.7s ease-in-out
+	-moz-transition all 0.7s ease-in-out
+	-o-transition all 0.7s ease-in-out
+	transition all 0.7s ease-in-out
+
+.bgTransp
+	background transparent!important
+
+.blurry
+	// Very greedy but looks good
+	-webkit-filter: blur(5px);
+	-moz-filter: blur(5px);
+	-o-filter: blur(5px);
+	-ms-filter: blur(5px);
+	filter: blur(5px);
+
+	// Not greedy but looks less good
+	//opacity 0.3!important
+
+.capitalized, .capitalize
+	text-transform capitalize
+
+.centered
+	text-align center
+
+.cursorPointer
+	cursor pointer
+
+.displayBlock
+	display block
+
+.displayNone
+	display none!important
+
+.flex
+	display flex // !important --> NOT !important, because then, they can't be switched to display : none
+
+	&.column
+		flex-direction column
+
+	&.inline, &.center-v, &.center-all
+		align-items center
+
+		&:not(.column)
+
+			> *
+				margin-top 0 // !important
+				margin-bottom 0 // !important
+
+	&.flex-end
+		justify-content flex-end
+
+	&.center-h, &.center-all
+		justify-content center
+
+	&.space-around
+		justify-content space-around
+
+	&.space-between
+		justify-content space-between
+
+	&.wrap
+		flex-wrap wrap
+
+.fullscreen
+	width 100vw
+	height 100%
+	position relative
+
+.fullwidth, .fullWidth
+	width 100%
+
+.hidden, [hidden]
+	visibility hidden!important // Unlike display:none, this keeps the volume of the element
+
+.inverted
+	-webkit-filter: invert(100%);
+
+.noBorder, .noborder
+	border none!important
+
+	tr,td
+		border none!important
+
+.no-highlight, ui-switch 
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0)
+
+.noMargin, .nomargin
+	margin 0!important
+
+.noPadding, .nopadding
+	padding 0!important
+
+.noshrink
+	flex-shrink: 0
+
+.noselect
+	user-select none
+
+.noUnderline
+	text-decoration: none!important
+
+.opaque
+	opacity 1!important
+
+.scroller
+	overflow-x hidden
+	overflow-y auto
+
+.shadow // = Papier depth-3
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+.showOnHover
+	opacity 0.2
+
+	&:hover
+		// visibility visible // <---- Not working???
+		opacity 1
+
+.showButtonsOnHover
+
+	// &.padding-left
+	// 	padding-left 25px // to center the text despite the invisible "edit associations" button
+
+	.buttons
+		opacity 0.2
+
+	&:hover
+		.buttons
+			opacity 1
+
+.singleLine, .nobreak
+	white-space: nowrap;
+
+@-webkit-keyframes spinning /* Safari and Chrome */ {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinning {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.spinning
+	-webkit-animation: spinning 2s linear infinite;
+	-moz-animation: spinning 2s linear infinite;
+	-ms-animation: spinning 2s linear infinite;
+	-o-animation: spinning 2s linear infinite;
+	animation: spinning 2s linear infinite;
+
+.uppercase
+	text-transform uppercase
