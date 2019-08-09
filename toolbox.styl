@@ -1,4 +1,92 @@
 
+// RESET
+
+*
+	margin 0
+	padding 0
+	position relative
+	flex-shrink 0
+
+div, ul, li, a, button
+
+	&:not(.grid):not(.noflex) // separatinf :not()( with commas don't work
+		display flex
+		flex-shrink 1
+		background red
+
+ul
+	list-style none
+	flex-direction column
+
+
+html, body, app-root
+	height 100vh
+
+body
+	overflow hidden
+	font-size 1rem
+
+button
+	align-items center
+
+	&[disabled]
+		// pointer-events none --> No need. JS won't execute anyway, and this prevents getting a nice "not-allowed" cursor
+		opacity 0.5
+
+	i.fa, i.fas, svg
+		margin-right 10px
+
+	user-select none
+
+small
+	display block
+	font-size small
+	*
+		font-size small
+
+[routerlink]
+	outline none!important // Avoids blue rectangle around router links
+
+a, a:hover
+	text-decoration underline
+	cursor pointer
+	color inherit
+
+input
+	&[type=checkbox]
+		cursor pointer
+		transform translateY(1px)
+		&:focus
+			box-shadow none
+
+u
+	text-decoration underline
+
+h1
+	font-size 2rem
+h2
+	font-size 1.8rem
+h3
+	font-size 1.6rem
+h4
+	font-size 1.4rem
+h5
+	font-size 1.2rem
+h6
+	font-size 1.1rem
+
+pre
+	font-family monospace
+	font-size x-small
+
+// --- END RESET
+
+
+
+.addspaces
+	> *:not(:last-child)
+		margin-right 1ch
+
 animated()
 	-webkit-transition all 0.3s ease-in-out
 	-moz-transition all 0.3s ease-in-out
@@ -28,6 +116,22 @@ animated()
 	// Not greedy but looks less good
 	//opacity 0.3!important
 
+.border
+	border blue dashed 1px
+
+	&.red
+		border red dashed 1px
+	&.green
+		border green dashed 1px
+	&.yellow
+		border yellow dashed 1px
+	&.purple
+		border purple dashed 1px
+
+button
+	&[disabled]
+		cursor not-allowed!important
+
 .capitalized, .capitalize
 	text-transform capitalize
 
@@ -37,41 +141,65 @@ animated()
 .cursorPointer
 	cursor pointer
 
-.displayBlock
+.dev
+	background-color #242424!important
+	color white!important
+	padding 2px 5px!important
+	font-family 'Roboto Mono', monospace!important
+	font-size x-small!important
+	text-align left!important
+
+	*
+		color white!important
+		font-size inherit!important
+		font-family 'Roboto Mono', monospace!important
+
+.displayBlock, .dispBlock
 	display block
 
-.displayNone
-	display none!important
+.displayNone, .dispNone
+	display none
+
+// FLEX UTILITIES
 
 .flex
 	display flex // !important --> NOT !important, because then, they can't be switched to display : none
 
-	&.column
-		flex-direction column
+.center-h, .center-all
+	justify-content center
 
-	&.inline, &.center-v, &.center-all
-		align-items center
+.column
+	flex-direction column
 
-		&:not(.column)
+.inline, .center-v, .center-all
+	align-items center
 
-			> *
-				margin-top 0 // !important
-				margin-bottom 0 // !important
+	&:not(.column)
 
-	&.flex-end
-		justify-content flex-end
+		> *
+			margin-top 0!important
+			margin-bottom 0!important
 
-	&.center-h, &.center-all
-		justify-content center
+.flex-end
+	justify-content flex-end
 
-	&.space-around
-		justify-content space-around
+.row
+	flex-direction row
 
-	&.space-between
-		justify-content space-between
+.space-around
+	justify-content space-around
 
-	&.wrap
-		flex-wrap wrap
+.space-between
+	justify-content space-between
+
+.wrap
+	flex-wrap wrap
+
+.flexgrow, .flex-grow
+	flex-grow 1
+
+// END FLEX UTILITIES
+
 
 .fullscreen
 	width 100vw
@@ -80,6 +208,9 @@ animated()
 
 .fullwidth, .fullWidth
 	width 100%
+
+.grid
+	display grid
 
 .hidden, [hidden]
 	visibility hidden!important // Unlike display:none, this keeps the volume of the element
