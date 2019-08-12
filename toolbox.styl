@@ -12,7 +12,6 @@ div, ul, li, a, button
 	&:not(.grid):not(.noflex) // separatinf :not()( with commas don't work
 		display flex
 		flex-shrink 1
-		background red
 
 ul
 	list-style none
@@ -88,19 +87,19 @@ pre
 		margin-right 1ch
 
 animated()
-	-webkit-transition all 0.3s ease-in-out
-	-moz-transition all 0.3s ease-in-out
-	-o-transition all 0.3s ease-in-out
-	transition all 0.3s ease-in-out
+	-webkit-transition all 0.3s cubic-bezier(0.88, 0.07, 0.18, 0.97)
+	-moz-transition all 0.3s cubic-bezier(0.88, 0.07, 0.18, 0.97)
+	-o-transition all 0.3s cubic-bezier(0.88, 0.07, 0.18, 0.97)
+	transition all 0.3s cubic-bezier(0.88, 0.07, 0.18, 0.97)
 
 .animated
 	animated()
 
 .animatedSlow
-	-webkit-transition all 0.7s ease-in-out
-	-moz-transition all 0.7s ease-in-out
-	-o-transition all 0.7s ease-in-out
-	transition all 0.7s ease-in-out
+	-webkit-transition all 0.7s cubic-bezier(0.88, 0.07, 0.18, 0.97)
+	-moz-transition all 0.7s cubic-bezier(0.88, 0.07, 0.18, 0.97)
+	-o-transition all 0.7s cubic-bezier(0.88, 0.07, 0.18, 0.97)
+	transition all 0.7s cubic-bezier(0.88, 0.07, 0.18, 0.97)
 
 .bgTransp
 	background transparent!important
