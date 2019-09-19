@@ -11,7 +11,7 @@ div, ul, li, a, button
 
 	&:not(.grid):not(.noflex) // separatinf :not()( with commas don't work
 		display flex
-		flex-shrink 1
+		// flex-shrink 1
 
 ul
 	list-style none
@@ -54,6 +54,9 @@ a, a:hover
 	cursor pointer
 	color inherit
 
+.breakword
+	word-break break-word // useful for elements that contains super long words (or absence of white space), it allows them to break and not overflow
+
 input
 	&[type=checkbox]
 		cursor pointer
@@ -80,6 +83,7 @@ h6
 pre
 	font-family monospace
 	font-size x-small
+	white-space pre-wrap
 
 // --- END RESET
 
@@ -140,7 +144,7 @@ button
 .centered
 	text-align center
 
-.cursorPointer
+.cursorPointer, .pointer
 	cursor pointer
 
 .dev
@@ -172,6 +176,9 @@ button
 
 .column
 	flex-direction column
+
+.grow, .flexgrow, .flexGrow
+	flex-grow 1
 
 .inline, .center-v, .center-all
 	align-items center
@@ -226,7 +233,10 @@ button
 	tr,td
 		border none!important
 
-.no-highlight, ui-switch 
+.noevents
+	pointer-events none
+
+.nohighlight, ui-switch 
 	-webkit-tap-highlight-color: rgba(255, 255, 255, 0)
 
 .noMargin, .nomargin
@@ -246,6 +256,19 @@ button
 
 .opaque
 	opacity 1!important
+
+.overlay
+	// background-color rgba(0,0,0,0.3)
+	width 200vw
+	height 200vh
+	position absolute
+	top -100vh
+	left -100vw
+	pointer-events none
+	
+	&.active
+		background-color rgba(0,0,0,0.3)
+		pointer-events auto
 
 .scroller
 	overflow-x hidden
@@ -273,7 +296,7 @@ button
 		.buttons
 			opacity 1
 
-.singleLine, .nobreak
+.singleLine, .nobreak, .nowrap
 	white-space: nowrap;
 
 @-webkit-keyframes spinning /* Safari and Chrome */ {
