@@ -64,7 +64,7 @@ input
 		&:focus
 			box-shadow none
 
-u
+u, .underline
 	text-decoration underline
 
 h1
@@ -245,13 +245,16 @@ button
 .noPadding, .nopadding
 	padding 0!important
 
-.noshrink
-	flex-shrink: 0
+.nogrow, .noGrow
+	flex-grow 0
 
-.noselect
+.noshrink, .noShrink
+	flex-shrink 0
+
+.noselect, .noSelect
 	user-select none
 
-.noUnderline
+.nounderline, .noUnderline
 	text-decoration: none!important
 
 .opaque
