@@ -7,9 +7,14 @@
 	position relative
 	flex-shrink 0
 
+	// YES!! Avoids padding from enlarging the div! Puts padding INSIDE! WOOO - https://stackoverflow.com/questions/779434/how-do-i-prevent-the-padding-property-from-changing-width-or-height-in-css
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box; 
+
 div, ul, li, a, button
 
-	&:not(.grid):not(.noflex)
+	&:not(.grid):not(.noflex):not(.pac-container) // Google Places AutoComplete
 		display flex
 
 ul
@@ -44,6 +49,14 @@ small
 	font-size small
 	*
 		font-size small
+
+.big
+	display block
+	font-size small
+	*
+		font-size small
+
+
 
 [routerlink]
 	outline none!important // Avoids blue rectangle around router links
@@ -200,6 +213,9 @@ button
 .space-between
 	justify-content space-between
 
+.stretch
+	align-items stretch
+
 .wrap
 	flex-wrap wrap
 
@@ -273,8 +289,10 @@ button
 		pointer-events auto
 
 .scroller
+	display block
 	overflow-x hidden
 	overflow-y auto
+	flex-shrink 1
 
 .shadow // = Papier depth-3
 	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
